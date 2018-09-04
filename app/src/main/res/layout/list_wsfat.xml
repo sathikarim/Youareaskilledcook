@@ -20,25 +20,37 @@
 
             <ImageView
                 android:id="@+id/imagwsfat"
-                android:scaleType="fitXY"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/background"
+                android:src="@drawable/mail"
+                android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
                 />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@id/imagwsfat"
+    android:layout_alignParentRight="true"                android:background="#9c727272"
+    android:padding="16dp"
+    >
+    <TextView
+        android:id="@+id/txtwsfat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="frit"
+        android:layout_alignParentRight="true"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/wsfattime"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20 min"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textStyle="bold" />
+</RelativeLayout>
 
-            <TextView
-                android:id="@+id/txtcrtg"
-                android:padding="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/imagwsfat"
-                android:gravity="right"
-                android:layout_alignParentRight="true"
-                android:background="#9c727272"
-                android:text="frit"
-                android:textAppearance="?android:textAppearanceLarge"
-                android:textStyle="bold" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>

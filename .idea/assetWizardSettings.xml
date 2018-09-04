@@ -23,7 +23,8 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="61" />
+                                                <entry key="scalingPercent" value="99" />
+                                                <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -34,8 +35,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="353535" />
-                                      <entry key="foregroundImage" value="C:\Users\kmm\Desktop\Nouveau dossier (2)\Nouveau dossier\icon.png" />
+                                      <entry key="backgroundColor" value="a668a6" />
+                                      <entry key="foregroundImage" value="C:\Users\kmm\Desktop\Nouveau dossier (2)\Nouveau dossier\iconm.png" />
+                                      <entry key="legacyIconShape" value="NONE" />
+                                      <entry key="webIconShape" value="NONE" />
                                     </map>
                                   </option>
                                 </PersistentState>
