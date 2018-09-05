@@ -54,4 +54,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void gotowsfat(View view) {
+        Intent i = new Intent(this,catrg.class);
+        startActivity(i);
+    }
+
+    public void gotofrv(View view) {
+        Intent i = new Intent(this,wsfat.class);
+        startActivity(i);
+    }
 }
