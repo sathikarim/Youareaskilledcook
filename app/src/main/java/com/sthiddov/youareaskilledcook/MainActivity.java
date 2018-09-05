@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,10 +27,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home
+                ) {
+            Toast.makeText(this, "pressed1", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
 
 
     public void showAbout(View view) {
@@ -57,10 +75,12 @@ public class MainActivity extends AppCompatActivity {
     public void gotowsfat(View view) {
         Intent i = new Intent(this,catrg.class);
         startActivity(i);
+        finish();
     }
 
     public void gotofrv(View view) {
         Intent i = new Intent(this,wsfat.class);
         startActivity(i);
+        finish();
     }
 }
