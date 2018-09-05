@@ -3,6 +3,7 @@ package com.sthiddov.youareaskilledcook;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,4 +41,17 @@ public class MainActivity extends AppCompatActivity {
         builder.setView(inflater.inflate(R.layout.about, null));
         builder.create().show();
     }
+    public void sendEmail(View view) {
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setData(Uri.parse("mailto:"));
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{ "khhb17@hotmail.com"});
+        i.putExtra(Intent.EXTRA_SUBJECT,"موضوع المراسلة");
+        i.putExtra(Intent.EXTRA_TEXT,"نص المراسلة");
+        i.setType("message/rfc822");
+        if (i.resolveActivity(getPackageManager()) != null) {
+            startActivity(Intent.createChooser(i, "Send Email"));
+        }
+
+    }
+
 }
