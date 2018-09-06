@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,13 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".splash"
+            android:name=".activity.splash"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".catrg"
+            android:name=".activity.catrg"
             android:screenOrientation="portrait" />
-        <activity android:name=".wsfat" />
-        <activity android:name=".howcook"></activity>
+        <activity android:name=".activity.wsfat" />
+        <activity android:name=".activity.howcook"></activity>
     </application>
 
 </manifest>

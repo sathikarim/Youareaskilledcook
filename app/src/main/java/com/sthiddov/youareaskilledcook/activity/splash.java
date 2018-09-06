@@ -1,10 +1,12 @@
-package com.sthiddov.youareaskilledcook;
+package com.sthiddov.youareaskilledcook.activity;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
+import com.sthiddov.youareaskilledcook.R;
 
 public class splash extends AppCompatActivity {
 

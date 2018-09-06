@@ -1,4 +1,4 @@
-package com.sthiddov.youareaskilledcook;
+package com.sthiddov.youareaskilledcook.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.sthiddov.youareaskilledcook.R;
 
 public class howcook extends AppCompatActivity {
 
