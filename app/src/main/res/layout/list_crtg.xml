@@ -20,12 +20,11 @@
 
             <ImageView
                 android:id="@+id/imagwsfat"
-                android:scaleType="fitXY"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/background"
                 android:layout_centerHorizontal="true"
-                />
+                android:scaleType="fitXY"
+                android:src="@drawable/dsfdsf" />
 
             <TextView
                 android:id="@+id/txtcrtg"

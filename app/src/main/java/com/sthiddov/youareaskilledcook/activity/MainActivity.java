@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+   
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -71,13 +72,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotowsfat(View view) {
-        Intent i = new Intent(this,catrg.class);
+        Intent i = new Intent(this,CatrgActivity.class);
         startActivity(i);
         finish();
     }
 
     public void gotofrv(View view) {
-        Intent i = new Intent(this,wsfat.class);
+        Intent i = new Intent(this,WsfatActivity.class);
         startActivity(i);
         finish();
     }

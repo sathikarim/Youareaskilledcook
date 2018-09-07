@@ -1,15 +1,19 @@
 package com.sthiddov.youareaskilledcook.modils;
 
+import android.graphics.Bitmap;
+
 public class Crtag {
-private int id,idimage;
+private int id;
+    private Bitmap image;
+
 private String title;
 
     public Crtag() {
     }
 
-    public Crtag(int id, int idimage, String title) {
+    public Crtag(int id, Bitmap image ,String title) {
         this.id = id;
-        this.idimage = idimage;
+        this.image = image;
         this.title = title;
     }
 
@@ -21,12 +25,12 @@ private String title;
         this.id = id;
     }
 
-    public int getIdimage() {
-        return idimage;
+    public Bitmap getBitmap() {
+        return image;
     }
 
-    public void setIdimage(int idimage) {
-        this.idimage = idimage;
+    public void setBitmap(Bitmap image) {
+        this.image= image;
     }
 
     public String getTitle() {

@@ -7,7 +7,7 @@ public class Wsfat {
     public Wsfat() {
     }
 
-    public Wsfat(int id, int idimage, String title, String time) {
+    public Wsfat(int idimage, String title, String time) {
         this.id = id;
         this.idimage = idimage;
         this.title = title;
@@ -45,4 +45,5 @@ public class Wsfat {
     public void setTime(String time) {
         this.time = time;
     }
+
 }
