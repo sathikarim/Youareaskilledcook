@@ -30,10 +30,12 @@ public class WsfatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wsfat);
+        //استقبار رقم نوع الوصف
         sessionId= getIntent().getIntExtra("key",1);
         if (sessionId!=7) {
             toolbartitle = getIntent().getStringExtra("title");
         }else{
+          //رقم 7 هو رقم ماين اكتيفيتي
             toolbartitle="المفضلة";
         }
         settoolbar(toolbartitle);

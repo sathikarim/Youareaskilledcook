@@ -43,7 +43,9 @@ public class CatrgActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(CatrgActivity.this,WsfatActivity.class);
+               //                ارسال رقم نوع الوصفة
                 i.putExtra("key",crtaglist.get(position).getId());
+//                ارسال اسم نزع الوصفة
                 i.putExtra("title",crtaglist.get(position).getTitle());
                 startActivity(i);
                 finish();

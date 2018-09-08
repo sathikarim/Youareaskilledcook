@@ -131,6 +131,8 @@ public class Datacook extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<Wsfat> wsfatList = new ArrayList<>();
         //تحديد الجدول الذي يأخذ منه المعلومات
+        //تحديد نوع الوصف ايضا
+        //عبر المقارنة بين id نوع الوصفة مع filter
         Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE filter =" +i,null);
 
         while (cursor.moveToNext()){
