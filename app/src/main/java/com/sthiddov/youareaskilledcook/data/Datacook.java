@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import com.sthiddov.youareaskilledcook.modils.Crtag;
+import com.sthiddov.youareaskilledcook.modils.Wsfat;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -125,5 +126,24 @@ public class Datacook extends SQLiteOpenHelper {
             crtagList.add(crtag);
         }
         return  crtagList;
+    }
+    public ArrayList<Wsfat> getallWsfat(int i){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<Wsfat> wsfatList = new ArrayList<>();
+        //تحديد الجدول الذي يأخذ منه المعلومات
+        Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE filter =" +i,null);
+
+        while (cursor.moveToNext()){
+            Wsfat wsfat = new Wsfat();
+            wsfat.setId(cursor.getInt(cursor.getColumnIndex("id")));
+            wsfat.setTitle(cursor.getString(cursor.getColumnIndex("title")));
+            wsfat.setTime(cursor.getString(cursor.getColumnIndex("fulltime")));
+            byte blob[]=cursor.getBlob(cursor.getColumnIndex("img"));
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(blob);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            wsfat.setImagewsf(bitmap);
+            wsfatList.add(wsfat);
+        }
+        return  wsfatList;
     }
 }

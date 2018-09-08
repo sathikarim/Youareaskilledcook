@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.sthiddov.youareaskilledcook.R;
 
-import java.io.WriteAbortedException;
 import java.util.ArrayList;
 
 public class Wsfatadabter extends ArrayAdapter<Wsfat> {
@@ -25,7 +24,7 @@ public class Wsfatadabter extends ArrayAdapter<Wsfat> {
         Wsfat wsfat = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_crtg, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_wsfat, parent, false);
         }
         // Lookup view for data population
         TextView tvName = convertView.findViewById(R.id.txtwsfat);
@@ -34,8 +33,8 @@ public class Wsfatadabter extends ArrayAdapter<Wsfat> {
         ImageView imgwsfat =  convertView.findViewById(R.id.imagwsfat);
         // Populate the data into the template view using the data object
         tvName.setText(wsfat.getTitle());
-        tvtime.setText(wsfat.getTime());
-        imgwsfat.setImageResource(wsfat.getIdimage());
+        tvtime.setText(wsfat.getTime()+" min");
+        imgwsfat.setImageBitmap(wsfat.getImagewsf());
         // Return the completed view to render on screen
         return convertView;
     }

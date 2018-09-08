@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
    
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotofrv(View view) {
         Intent i = new Intent(this,WsfatActivity.class);
+        i.putExtra("key",7);
         startActivity(i);
         finish();
     }

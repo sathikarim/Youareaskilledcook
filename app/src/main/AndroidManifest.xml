@@ -18,14 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.SplashActivity"
-            android:screenOrientation="portrait" />
+        <!--<activity-->
+            <!--android:name=".activity.MainActivity"-->
+            <!--android:screenOrientation="portrait"-->
+           <!--/>-->
         <activity
             android:name=".activity.CatrgActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.WsfatActivity" />
-        <activity android:name=".activity.HowcookActivity"></activity>
+        <activity android:name=".activity.WsfatActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.HowcookActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

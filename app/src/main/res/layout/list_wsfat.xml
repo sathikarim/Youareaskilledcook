@@ -22,7 +22,7 @@
                 android:id="@+id/imagwsfat"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/mail"
+                android:src="@drawable/tastwsfa"
                 android:scaleType="centerCrop"
                 android:layout_centerHorizontal="true"
                 />
@@ -30,7 +30,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignBottom="@id/imagwsfat"
-    android:layout_alignParentRight="true"                android:background="#9c727272"
+    android:background="#9c727272"
     android:padding="16dp"
     >
     <TextView
@@ -38,17 +38,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="frit"
+        android:gravity="right"
+        android:layout_marginLeft="32dp"
+        android:layout_toRightOf="@id/wsfattime"
         android:layout_alignParentRight="true"
         android:textAppearance="?android:textAppearanceLarge"
         android:textStyle="bold" />
     <TextView
         android:id="@+id/wsfattime"
-        android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="20 min"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/icontime"
         android:textAppearance="?android:textAppearanceLarge"
         android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/icontime"
+        android:layout_marginRight="8dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/timer"/>
 </RelativeLayout>
 
 

@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,24 +31,25 @@ public class CatrgActivity extends AppCompatActivity {
         //انشاء toolbar
         settoolbar();
         //تحديد الداتا
-        mDBHelper = new Datacook(this);
-        try {
-            mDBHelper.updateDataBase();
-        } catch (IOException mIOException) {
-            throw new Error("UnableToUpdateDatabase");
-        }
+        getdata();
 
-        try {
-            mDb = mDBHelper.getWritableDatabase();
-        } catch (SQLException mSQLException) {
-            throw mSQLException;
-        }
         //انشاء قائمة الوصفات من الداتا
 
-       ArrayList<Crtag> crtaglist = mDBHelper.getallCrtag();
+       final ArrayList<Crtag> crtaglist = mDBHelper.getallCrtag();
         ListView lv = (ListView) findViewById(R.id.listcartg);
         Crtagadabter adapter = new Crtagadabter(this, crtaglist);
         lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(CatrgActivity.this,WsfatActivity.class);
+                i.putExtra("key",crtaglist.get(position).getId());
+                i.putExtra("title",crtaglist.get(position).getTitle());
+                startActivity(i);
+                finish();
+
+            }
+        });
 
 
     }
@@ -88,5 +91,19 @@ back();
         finish();
     }
 
+    public void getdata(){
+        mDBHelper = new Datacook(this);
+        try {
+            mDBHelper.updateDataBase();
+        } catch (IOException mIOException) {
+            throw new Error("UnableToUpdateDatabase");
+        }
 
+        try {
+            mDb = mDBHelper.getWritableDatabase();
+        } catch (SQLException mSQLException) {
+            throw mSQLException;
+        }
+
+    }
 }

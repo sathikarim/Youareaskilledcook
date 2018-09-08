@@ -1,15 +1,18 @@
 package com.sthiddov.youareaskilledcook.modils;
 
+import android.graphics.Bitmap;
+
 public class Wsfat {
-    private int id,idimage;
+    private int id;
+    private Bitmap imagewsf;
     private String title,time;
 
     public Wsfat() {
     }
 
-    public Wsfat(int idimage, String title, String time) {
+    public Wsfat(Bitmap idimage, String title, String time) {
         this.id = id;
-        this.idimage = idimage;
+        this.imagewsf = idimage;
         this.title = title;
         this.time = time;
     }
@@ -18,8 +21,8 @@ public class Wsfat {
         return id;
     }
 
-    public int getIdimage() {
-        return idimage;
+    public Bitmap getImagewsf() {
+        return imagewsf;
     }
 
     public String getTitle() {
@@ -34,8 +37,8 @@ public class Wsfat {
         this.id = id;
     }
 
-    public void setIdimage(int idimage) {
-        this.idimage = idimage;
+    public void setImagewsf(Bitmap imagewsf) {
+        this.imagewsf = imagewsf;
     }
 
     public void setTitle(String title) {
