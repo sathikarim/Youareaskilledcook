@@ -47,11 +47,13 @@ public class WsfatActivity extends AppCompatActivity {
 
         getdata();
         try{
+            //اتى من صفحة cratg
            if (sessionId!=7){
          wsfatArrayList = mDBHelper.getallWsfat(sessionId);
          lv = (ListView) findViewById(R.id.listwsfat);
             adapter = new Wsfatadabter(this, wsfatArrayList);
             lv.setAdapter(adapter);}
+            //اتى من صفحة main
             else {
                 wsfatArrayList = mDBHelper.getallfrv();
                 lv = (ListView) findViewById(R.id.listwsfat);
@@ -71,7 +73,8 @@ public class WsfatActivity extends AppCompatActivity {
                 Intent i = new Intent(WsfatActivity.this,HowcookActivity.class);
                 //                ارسال رقم نوع الوصفة
                 i.putExtra("key1",wsfatArrayList.get(position).getId());
-//                ارسال اسم نزع الوصفة
+//يرسل قيمة key لكي يححد موقع صفحة هذه
+
                 i.putExtra("key",sessionId);
                 i.putExtra("title",toolbartitle);
                 startActivity(i);

@@ -62,7 +62,7 @@ public class HowcookActivity extends AppCompatActivity {
         txtdec=findViewById(R.id.txtdec);
         imagefrv=findViewById(R.id.imgcheckfrv);
         imagewsf=findViewById(R.id.imagwsfa);
-
+//تحديد المتغيرات
         txttime1.setText(howcookList.get(0).getTimecook()+"\nدقيقة");
         txttime2.setText(howcookList.get(0).getTimefire()+"\nدقيقة");
         txtpeople.setText(howcookList.get(0).getPepole()+"\nأفراد");
@@ -78,7 +78,7 @@ public class HowcookActivity extends AppCompatActivity {
             imagefrv.setBackgroundColor(Color.WHITE);
 
         }
-
+//انشاؤ قائمة المكونات
         for (int i=0 ;i<howcookList.get(0).getShop();i++){
             CheckBox cb = new CheckBox(this);
             cb.setText(howcookList.get(0).getListshop().get(i));
@@ -123,7 +123,7 @@ public class HowcookActivity extends AppCompatActivity {
         }
 
     }
-
+//تحديد تفضيل الوصفة
     public void updatefrv(View view) {
         try {
             int k = mDBHelper.updatefrv(sessionId1, j);

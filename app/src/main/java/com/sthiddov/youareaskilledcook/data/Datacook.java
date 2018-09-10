@@ -150,15 +150,15 @@ public class Datacook extends SQLiteOpenHelper {
         }
         return  wsfatList;
     }
+
     public ArrayList<Howcook> gethowcook(int i){
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<Howcook> howcookList = new ArrayList<>();
         ArrayList<String> shopList=new ArrayList<>();
         //تحديد الجدول الذي يأخذ منه المعلومات
         //تحديد نوع الوصف ايضا
-        //عبر المقارنة بين id نوع الوصفة مع filter
+//        ياأتي بمعلومة التى تساوي قيمة id
         Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE id =" +i,null);
-
         while (cursor.moveToNext()){
             int k=0;
             for(int j=0;j<21;j++) {
@@ -181,17 +181,18 @@ public class Datacook extends SQLiteOpenHelper {
         }
         return  howcookList;
     }
-
+//تحدسث منطقية الوصفة
+    //مفصلة ام لا
     public int updatefrv(int i,Boolean check) {
         SQLiteDatabase db = this.getWritableDatabase();
-        //  Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE id =" +i,null);
         ContentValues cv = new ContentValues();
         int k;
+        //تحويل من مفضلة الى لا
         if (check) {
             cv.put("frv", 0);
             db.update("wsfat", cv, "id" + "= " + i, null);
             k=0;
-
+//تحويل من لا الى مفضلة
         } else {
             cv.put("frv", 1);
             k = db.update("wsfat", cv, "id" + "=" + i, null);
@@ -200,12 +201,15 @@ public class Datacook extends SQLiteOpenHelper {
 
 return k;
     }
+    //قائمة المفضلة
     public ArrayList<Wsfat> getallfrv(){
         SQLiteDatabase db = this.getWritableDatabase();
         ArrayList<Wsfat> wsfatList = new ArrayList<>();
         //تحديد الجدول الذي يأخذ منه المعلومات
         //تحديد نوع الوصف ايضا
-        //عبر المقارنة بين id نوع الوصفة مع filter
+        //عبر المقارنة بقسية frv
+        //1=true
+        //0=false
         Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE frv = 1",null);
 
         while (cursor.moveToNext()){
