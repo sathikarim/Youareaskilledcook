@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +28,9 @@ public class WsfatActivity extends AppCompatActivity {
     private SQLiteDatabase mDb;
     String toolbartitle;
     int sessionId;
+    ArrayList<Wsfat> wsfatArrayList;
+    ListView lv ;
+    Wsfatadabter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,16 +47,39 @@ public class WsfatActivity extends AppCompatActivity {
 
         getdata();
         try{
-            if (sessionId!=7){
-            final ArrayList<Wsfat> wsfatArrayList = mDBHelper.getallWsfat(sessionId);
-            ListView lv = (ListView) findViewById(R.id.listwsfat);
-            Wsfatadabter adapter = new Wsfatadabter(this, wsfatArrayList);
-            lv.setAdapter(adapter);}else {
-                Toast.makeText(this, "this page frv", Toast.LENGTH_SHORT).show();
+           if (sessionId!=7){
+         wsfatArrayList = mDBHelper.getallWsfat(sessionId);
+         lv = (ListView) findViewById(R.id.listwsfat);
+            adapter = new Wsfatadabter(this, wsfatArrayList);
+            lv.setAdapter(adapter);}
+            else {
+                wsfatArrayList = mDBHelper.getallfrv();
+                lv = (ListView) findViewById(R.id.listwsfat);
+                adapter = new Wsfatadabter(this, wsfatArrayList);
+               lv.setAdapter(adapter);
+                if (wsfatArrayList.size()==0){
+                    Toast.makeText(this, "لا يجود وضفة مفضلة", Toast.LENGTH_LONG).show();
+                }
             }
         }catch (Exception e){
-        }
 
+        }
+        try{
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(WsfatActivity.this,HowcookActivity.class);
+                //                ارسال رقم نوع الوصفة
+                i.putExtra("key1",wsfatArrayList.get(position).getId());
+//                ارسال اسم نزع الوصفة
+                i.putExtra("key",sessionId);
+                i.putExtra("title",toolbartitle);
+                startActivity(i);
+                finish();
+            }
+        });
+        }catch (Exception e){
+        }
     }
     private void settoolbar(String title){
         Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);

@@ -1,5 +1,6 @@
 package com.sthiddov.youareaskilledcook.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import com.sthiddov.youareaskilledcook.modils.Crtag;
+import com.sthiddov.youareaskilledcook.modils.Howcook;
 import com.sthiddov.youareaskilledcook.modils.Wsfat;
 
 import java.io.ByteArrayInputStream;
@@ -134,6 +136,77 @@ public class Datacook extends SQLiteOpenHelper {
         //تحديد نوع الوصف ايضا
         //عبر المقارنة بين id نوع الوصفة مع filter
         Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE filter =" +i,null);
+
+        while (cursor.moveToNext()){
+            Wsfat wsfat = new Wsfat();
+            wsfat.setId(cursor.getInt(cursor.getColumnIndex("id")));
+            wsfat.setTitle(cursor.getString(cursor.getColumnIndex("title")));
+            wsfat.setTime(cursor.getString(cursor.getColumnIndex("fulltime")));
+            byte blob[]=cursor.getBlob(cursor.getColumnIndex("img"));
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(blob);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            wsfat.setImagewsf(bitmap);
+            wsfatList.add(wsfat);
+        }
+        return  wsfatList;
+    }
+    public ArrayList<Howcook> gethowcook(int i){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<Howcook> howcookList = new ArrayList<>();
+        ArrayList<String> shopList=new ArrayList<>();
+        //تحديد الجدول الذي يأخذ منه المعلومات
+        //تحديد نوع الوصف ايضا
+        //عبر المقارنة بين id نوع الوصفة مع filter
+        Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE id =" +i,null);
+
+        while (cursor.moveToNext()){
+            int k=0;
+            for(int j=0;j<21;j++) {
+                String mokn="m"+(j+1);
+                String test=cursor.getString(cursor.getColumnIndex(mokn));
+                if (test!= null){
+                    shopList.add(test);
+                    k++;
+                }
+            }
+            byte blob[]=cursor.getBlob(cursor.getColumnIndex("img"));
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(blob);
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+            boolean value;
+            if (cursor.getInt(cursor.getColumnIndex("frv")) > 0){value=true;}else {value=false;}
+
+            Howcook howcook = new Howcook(cursor.getInt(cursor.getColumnIndex("id")),cursor.getInt(cursor.getColumnIndex("timecook")),cursor.getInt(cursor.getColumnIndex("timefire")),cursor.getInt(cursor.getColumnIndex("number")),k,value,cursor.getString(cursor.getColumnIndex("dec")),cursor.getString(cursor.getColumnIndex("title")),bitmap,shopList);
+            howcookList.add(howcook);
+
+        }
+        return  howcookList;
+    }
+
+    public int updatefrv(int i,Boolean check) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //  Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE id =" +i,null);
+        ContentValues cv = new ContentValues();
+        int k;
+        if (check) {
+            cv.put("frv", 0);
+            db.update("wsfat", cv, "id" + "= " + i, null);
+            k=0;
+
+        } else {
+            cv.put("frv", 1);
+            k = db.update("wsfat", cv, "id" + "=" + i, null);
+            k=1;
+        }
+
+return k;
+    }
+    public ArrayList<Wsfat> getallfrv(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ArrayList<Wsfat> wsfatList = new ArrayList<>();
+        //تحديد الجدول الذي يأخذ منه المعلومات
+        //تحديد نوع الوصف ايضا
+        //عبر المقارنة بين id نوع الوصفة مع filter
+        Cursor cursor = db.rawQuery("SELECT * FROM wsfat WHERE frv = 1",null);
 
         while (cursor.moveToNext()){
             Wsfat wsfat = new Wsfat();

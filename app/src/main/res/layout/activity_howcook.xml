@@ -1,26 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.HowcookActivity"
+       >
+    <TextView
+        android:layout_marginLeft="2dp"
+        android:id="@+id/txtfixe"
+        android:textSize="22sp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_toRightOf="@id/imgcheckfrv"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="اسم الوصف"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
+    <ImageView
+        android:onClick="updatefrv"
+        android:layout_marginRight="2dp"
+        android:id="@+id/imgcheckfrv"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/iconfrvfalse"
+         />
+        <ImageView
+            android:layout_below="@id/txtfixe"
+            android:id="@+id/imagwsfa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/tastwsfa"
+            android:scaleType="centerCrop" />
+
+
+
+<ScrollView
+    android:layout_below="@id/imagwsfa"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent">
-    <include layout="@layout/toolbar" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/cardview_default_elevation"
+    android:paddingLeft="@dimen/cardview_default_elevation"
+    android:paddingRight="@dimen/cardview_default_elevation"
+    android:paddingTop="@dimen/cardview_default_elevation"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/txttimefire"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:text="120\n دقيقة"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/icontimefire" />
+        </LinearLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:background="@color/colorAccent"
+        />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+             <TextView
+                 android:id="@+id/txttimecook"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:text="120\n دقيقة"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/icontimecook" />
+        </LinearLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="48dp"
+        android:background="@color/colorAccent"
+        />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/txtpeople"
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="8dp"
+                android:text="8 \n افراد"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/iconpeople" />
+        </LinearLayout>
+</LinearLayout>
+    </android.support.v7.widget.CardView>
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="4dp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        tools:context=".activity.HowcookActivity">
+        >
 
+        <TextView
 
-
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_margin="16dp"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:text="قائمة المكونات"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"/>
         <ImageView
-            android:id="@+id/imaghowcook"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/iconm" />
+            android:id="@+id/imglist"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="-8dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/checklist"
+            />
 
+        <LinearLayout
+            android:textDirection="rtl"
+            android:layoutDirection="rtl"
+            android:id="@+id/listshop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imglist"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+        </LinearLayout>
 
     </RelativeLayout>
+</android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="4dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:text="طريقة التحضير"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@android:color/black" />
+            <ImageView
+                android:id="@+id/imgdec"
+                android:layout_margin="16dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/icondec"
+                />
+            <TextView
+                android:id="@+id/txtdec"
+                android:layout_below="@id/imgdec"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp"
+android:textSize="16sp"
+                android:textColor="@android:color/black">
+            </TextView>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
 </LinearLayout>
+</ScrollView>
+    </RelativeLayout>
